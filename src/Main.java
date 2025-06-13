@@ -1,6 +1,8 @@
 import java.awt.*;
+import java.text.NumberFormat;
 import java.util.Arrays;
 import java.util.Date;
+import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
@@ -82,6 +84,57 @@ public class Main {
         // Constants
         final float pi = 3.14f;
         System.out.println(pi);
-        pi = 4f;
+        // pi = 4f;
+
+        // Arithmetic Expressions
+        int result = 10 + 3;
+        System.out.println(result);
+
+        double resultDouble = (double) result;
+        System.out.println(resultDouble);
+
+        int z = 1;
+        int q = z++;
+
+        q = q + 2;
+        q += 1;
+        q -= 1;
+        q /= 1;
+        System.out.println(q);
+        System.out.println(z);
+
+        // Order of operations () */ +-
+        int u = 10 + 3 * 2;
+
+        // Casting
+        // Implicit casting
+        short r = 1;
+        int t = r + 1;
+        // byte > short > int > long > float > double
+
+        // Explicit casting
+        // double i = 1.1;
+        // int o = (int) i + 2;
+        // System.out.println(o);
+
+
+        // MATH
+        System.out.println(Math.max(10, 98));
+        System.out.println(Math.random());
+        System.out.println((int) Math.round(Math.random() * 100));
+
+        // Number format
+        NumberFormat percentInstance = NumberFormat.getPercentInstance();
+        String result2 = percentInstance.format(1234567.891);
+        System.out.println(result2);
+
+        // Scanner
+        Scanner scanner = new Scanner(System.in);
+//        System.out.print("Enter your age: ");
+//        byte ageInput = scanner.nextByte();
+//        System.out.println("Your ageInput is " + ageInput);
+        System.out.println("Enter your name: ");
+        String name = scanner.nextLine();
+        System.out.println("Your name: " + name);
     }
 }
