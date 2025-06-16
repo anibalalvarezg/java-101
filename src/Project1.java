@@ -6,15 +6,36 @@ public class Project1 {
         final byte MONTHS_IN_YEAR = 12;
         final byte PERCENTAGE = 100;
         Scanner sc = new Scanner(System.in);
-        System.out.println("Principal: ");
-        int principal = sc.nextInt();
+        int principal;
+        while (true) {
+            System.out.println("Principal: ");
+            principal = sc.nextInt();
+            if (principal >= 1000 && principal <= 1_000_000) {
+                break;
+            }
+            System.out.println("Enter a value between 1000 and 1_000_000: ");
+        }
 
-        System.out.println("Annual Interest Rate: ");
-        double annualInterestRate = sc.nextDouble();
+        double annualInterestRate;
+        while (true) {
+            System.out.println("Annual Interest Rate: ");
+            annualInterestRate = sc.nextDouble();
+            if (annualInterestRate >= 1 && annualInterestRate <= 30) {
+                break;
+            }
+            System.out.println("Enter a value between 1 and 30: ");
+        }
         double monthlyInterestRate = annualInterestRate / PERCENTAGE / MONTHS_IN_YEAR;
 
-        System.out.println("Period (years)");
-        byte years = sc.nextByte();
+        int years;
+        while (true) {
+            System.out.println("Period (years)");
+            years = sc.nextByte();
+            if (years >= 1 && years < 31) {
+                break;
+            }
+            System.out.println("Enter a value between 1 and 30 ");
+        }
         int months = years * MONTHS_IN_YEAR;
 
         double pow = Math.pow(1 + (monthlyInterestRate), (months));
