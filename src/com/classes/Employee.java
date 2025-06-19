@@ -20,6 +20,8 @@ public class Employee {
     }
 
     public void setHourlyRate(int hourlyRate) {
+        if (hourlyRate <= 0)
+            throw new IllegalArgumentException("hourlyRate should be a positive number");
         this.hourlyRate = hourlyRate;
     }
 
