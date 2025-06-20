@@ -1,7 +1,7 @@
 package com.inheritance;
 
 public class UIControl {
-    private boolean isEnabled = true;
+    protected boolean isEnabled = true;
 
     public UIControl(boolean isEnabled) {
         System.out.println("UIControl");
