@@ -1,8 +1,15 @@
 import java.text.NumberFormat;
 
 public class MortgageReport {
-    public static void printMortgage(int principal, float annualInterestRate, byte years) {
-        double mortgage = MortgageCalculator.calculateMortgage(principal, annualInterestRate, years);
+
+    private Calculator calculator;
+
+    public MortgageReport(Calculator calculator) {
+        this.calculator = calculator;
+    }
+
+    public void printMortgage() {
+        double mortgage = calculator.calculateMortgage();
         NumberFormat mortgageFormatted = NumberFormat.getCurrencyInstance();
         String result = mortgageFormatted.format(mortgage);
         System.out.println("MORTGAGE");
@@ -10,13 +17,13 @@ public class MortgageReport {
         System.out.println("Mortgage Payments: " + result);
     }
 
-    public static void printPaymentSchedule(byte years, int principal, float annualInterestRate) {
+    public void printPaymentSchedule() {
         System.out.println();
         System.out.println("PAYMENT SCHEDULE");
         System.out.println("----------------");
 
-        for (short month = 1; month <= years * MortgageCalculator.MONTHS_IN_YEAR; month++) {
-            double balance = MortgageCalculator.calculateBalance(principal, annualInterestRate, years, month);
+        for (short month = 1; month <= calculator.getYears() * MortgageCalculator.MONTHS_IN_YEAR; month++) {
+            double balance = calculator.calculateBalance(month);
             System.out.println(NumberFormat.getCurrencyInstance().format(balance));
         }
     }
