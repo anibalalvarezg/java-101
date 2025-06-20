@@ -2,8 +2,16 @@ package com.inheritance;
 
 public class Main {
     public static void main(String[] args) {
-        var textBox = new TextBox();
-        textBox.setText("Hello World");
-        System.out.println(textBox);
+        var control = new UIControl(true);
+        var textbox = new TextBox();
+        show(control);
+    }
+
+    public static void show(UIControl control) {
+        if (control instanceof TextBox) {
+            var textBox = (TextBox) control;
+            textBox.setText("Hello World");
+            System.out.println(control);
+        }
     }
 }
