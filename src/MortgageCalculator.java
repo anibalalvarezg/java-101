@@ -1,13 +1,12 @@
 import java.text.NumberFormat;
-import java.util.Scanner;
 
 public class MortgageCalculator {
     final static byte MONTHS_IN_YEAR = 12;
     final static byte PERCENTAGE = 100;
     public static void main(String[] args) {
-        int principal = (int)readNumber("Principal", 1000, 1_000_000);
-        float annualInterestRate = (float) readNumber("Annual interest rate", 1, 30);
-        byte years = (byte) readNumber("Period (years)", 1, 31);
+        int principal = (int) Console.readNumber("Principal", 1000, 1_000_000);
+        float annualInterestRate = (float) Console.readNumber("Annual interest rate", 1, 30);
+        byte years = (byte) Console.readNumber("Period (years)", 1, 31);
         printMortgage(principal, annualInterestRate, years);
         printPaymentSchedule(years, principal, annualInterestRate);
     }
@@ -30,19 +29,6 @@ public class MortgageCalculator {
             double balance = calculateBalance(principal, annualInterestRate, years, month);
             System.out.println(NumberFormat.getCurrencyInstance().format(balance));
         }
-    }
-
-    public static double readNumber(String prompt, double min, double max) {
-        Scanner sc = new Scanner(System.in);
-        double value;
-        while (true) {
-            System.out.println(prompt);
-            value = sc.nextInt();
-            if (value >= min && value <= max)
-                break;
-            System.out.println("Enter a value between " + min + " and " + max + ": ");
-        }
-        return value;
     }
 
     public static double calculateMortgage(
