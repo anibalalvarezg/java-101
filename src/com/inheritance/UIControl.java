@@ -1,6 +1,6 @@
 package com.inheritance;
 
-public class UIControl {
+public abstract class UIControl {
     protected boolean isEnabled = true;
 
 //    public UIControl(boolean isEnabled) {
@@ -8,9 +8,7 @@ public class UIControl {
 //        this.isEnabled = isEnabled;
 //    }
 
-    public void render() {
-
-    }
+    public abstract void render();
 
     public void enable() {
         isEnabled = true;
