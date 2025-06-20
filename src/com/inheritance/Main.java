@@ -2,7 +2,7 @@ package com.inheritance;
 
 public class Main {
     public static void main(String[] args) {
-        var control = new UIControl(true);
+        var control = new UIControl();
         var textbox = new TextBox();
         show(control);
 
@@ -13,6 +13,11 @@ public class Main {
 
         System.out.println(point1.hashCode());
         System.out.println(point2.hashCode());
+
+        UIControl[] controls = { new TextBox(), new CheckBox() };
+        for (var controlInput: controls) {
+            controlInput.render();
+        }
 
     }
 

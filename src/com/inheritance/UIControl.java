@@ -3,9 +3,13 @@ package com.inheritance;
 public class UIControl {
     protected boolean isEnabled = true;
 
-    public UIControl(boolean isEnabled) {
-        System.out.println("UIControl");
-        this.isEnabled = isEnabled;
+//    public UIControl(boolean isEnabled) {
+//        System.out.println("UIControl");
+//        this.isEnabled = isEnabled;
+//    }
+
+    public void render() {
+
     }
 
     public void enable() {
