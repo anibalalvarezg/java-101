@@ -1,6 +1,6 @@
 public class Calculator {
-    public final static byte MONTHS_IN_YEAR = 12;
-    public final static byte PERCENTAGE = 100;
+    private final static byte MONTHS_IN_YEAR = 12;
+    private final static byte PERCENTAGE = 100;
 
     private int principal;
     private float annualInterestRate;
@@ -27,15 +27,18 @@ public class Calculator {
                 / (Math.pow(1 + (monthlyInterestRate), (months)) - 1);
     }
 
+    public double[] getRemainingBalances() {
+        var balances = new double[getMonths()];
+        for (short month = 1; month <= balances.length; month++)
+            balances[month - 1] = calculateBalance(month);
+        return balances;
+    }
+
     private short getMonths() {
         return (short) (years * MONTHS_IN_YEAR);
     }
 
     private float getMonthlyInterestRate() {
         return annualInterestRate / PERCENTAGE / MONTHS_IN_YEAR;
-    }
-
-    public int getYears() {
-        return years;
     }
 }
