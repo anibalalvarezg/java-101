@@ -1,10 +1,10 @@
 package com.interfaces;
 
 public class TaxReport {
-    private TaxCalculatorTest calculator;
+    private TaxCalculator calculator;
 
-    public TaxReport() {
-        calculator = new TaxCalculatorTest(10_000);
+    public TaxReport(TaxCalculator calculator) {
+        this.calculator = calculator;
     }
 
     public void show() {

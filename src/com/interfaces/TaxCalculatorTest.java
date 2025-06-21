@@ -3,7 +3,7 @@ package com.interfaces;
 public class TaxCalculatorTest implements TaxCalculator {
     private double taxableIncome;
 
-    public TaxCalculatorTest(double taxableIncom) {
+    public TaxCalculatorTest(double taxableIncome) {
         this.taxableIncome = taxableIncome;
     }
 
