@@ -8,14 +8,23 @@ import java.text.SimpleDateFormat;
 
 public class ExceptionsDemo {
     public static void show() {
+        FileReader reader = null;
         try {
-            var reader = new FileReader("file.txt");
-            var value  = reader.read();
+            reader = new FileReader("file.txt");
+            var value = reader.read();
             new SimpleDateFormat().parse("");
         } catch (FileNotFoundException e) {
             System.out.println("File not found");
         } catch (IOException | ParseException e) {
             System.out.println("I/O exception");
+        } finally {
+            if (reader != null) {
+                try {
+                    reader.close();
+                } catch (IOException e) {
+                    throw new RuntimeException(e);
+                }
+            }
         }
     }
 
