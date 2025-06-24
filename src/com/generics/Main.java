@@ -14,5 +14,7 @@ public class Main {
 
         var max = Utils.max(user1, user2);
         System.out.println(max.toString());
+
+        Utils.print(1, 10);
     }
 }
