@@ -16,5 +16,16 @@ public class Main {
         System.out.println(max.toString());
 
         Utils.print(1, 10);
+
+        User user = new Instructor(10);
+        System.out.println(user.toString());
+        Utils.printUser(new Instructor(20));
+
+        var instructors = new GenericList<Instructor>();
+        var users = new GenericList<User>();
+
+
+
+        Utils.printUsers(instructors);
     }
 }
