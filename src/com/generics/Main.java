@@ -11,5 +11,8 @@ public class Main {
         else
             System.out.println("user1 > user2");
 
+
+        var max = Utils.max(user1, user2);
+        System.out.println(max.toString());
     }
 }
