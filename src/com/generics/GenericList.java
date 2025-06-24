@@ -1,6 +1,6 @@
 package com.generics;
 
-public class GenericList<T>{
+public class GenericList<T extends Comparable & Cloneable>{
     private T[] items = (T[]) new Object[10];
     private int size = 0;
 
