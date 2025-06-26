@@ -26,6 +26,6 @@ public class Main {
 
 
 
-        Utils.printUsers(instructors);
+//        Utils.printUsers(instructors);
     }
 }
