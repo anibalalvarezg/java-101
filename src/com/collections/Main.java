@@ -11,11 +11,11 @@ public class Main {
     public static void main(String[] args) {
 //        ListDemo.show();
         List<Customer> customers = new ArrayList<>();
-        customers.add(new Customer("John"));
-        customers.add(new Customer("Jane"));
-        customers.add(new Customer("Jill"));
+        customers.add(new Customer("John", "a1"));
+        customers.add(new Customer("Jane", "a2"));
+        customers.add(new Customer("Jill", "a3"));
 
-        Collections.sort(customers);
+        Collections.sort(customers, new EmailComparator());
 
         System.out.println(customers);
     }
