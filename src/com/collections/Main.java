@@ -2,17 +2,21 @@ package com.collections;
 
 import com.generics.GenericList;
 
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
+import java.util.List;
+
 public class Main {
     public static void main(String[] args) {
-        var list = new GenericList<Integer>();
-        list.add(10);
-        list.add(20);
-        list.add(30);
-        list.add(40);
+//        ListDemo.show();
+        List<Customer> customers = new ArrayList<>();
+        customers.add(new Customer("John"));
+        customers.add(new Customer("Jane"));
+        customers.add(new Customer("Jill"));
 
-        var iterator = list.iterator();
-        while (iterator.hasNext()) {
-            System.out.println(iterator.next());
-        }
+        Collections.sort(customers);
+
+        System.out.println(customers);
     }
 }
