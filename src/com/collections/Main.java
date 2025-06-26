@@ -20,5 +20,7 @@ public class Main {
         System.out.println(customers);
 
         QueueDemo.show();
+
+        SetDemo.show();
     }
 }
