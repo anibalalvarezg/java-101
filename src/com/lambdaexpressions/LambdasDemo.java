@@ -2,6 +2,7 @@ package com.lambdaexpressions;
 
 import java.util.List;
 import java.util.function.Consumer;
+import java.util.function.Function;
 import java.util.function.Supplier;
 
 public class LambdasDemo {
@@ -16,6 +17,9 @@ public class LambdasDemo {
 
         Supplier<Double> getRandom = () -> Math.random();
         System.out.println(getRandom.get());
+
+        Function<String, Integer> map = str -> str.length();
+        System.out.println(map.apply("Hello World!"));
     }
 
     public static void greet(Printer printer) {
