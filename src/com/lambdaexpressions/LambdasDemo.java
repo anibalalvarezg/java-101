@@ -20,6 +20,20 @@ public class LambdasDemo {
 
         Function<String, Integer> map = str -> str.length();
         System.out.println(map.apply("Hello World!"));
+
+        // "key:value"
+        // first: "key=value"
+        // second: "{key=value}"
+        Function<String, String> replaceColon = str -> str.replace(":", "=");
+        Function<String, String> addCurlyBrackets = str -> "{" + replaceColon.apply(str) + "}";
+        var result = replaceColon
+                .andThen(addCurlyBrackets)
+                .apply("key:value");
+
+        var result2 = addCurlyBrackets.compose(replaceColon).apply("key:value");
+
+        System.out.println(result);
+        System.out.println(result2);
     }
 
     public static void greet(Printer printer) {
