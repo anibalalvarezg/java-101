@@ -1,18 +1,21 @@
 package com.lambdaexpressions;
 
+import java.util.List;
+import java.util.function.Consumer;
+import java.util.function.Supplier;
+
 public class LambdasDemo {
+    public LambdasDemo(String message) {
+
+    }
     public static void show() {
-        greet(message -> System.out.println("message: " + message));
+        List<String> list = List.of("a", "b", "c");
+        Consumer<String> print = item -> System.out.println(item);
+        Consumer<String> printUpperCase = s -> System.out.println(s.toUpperCase());
+        list.forEach(print.andThen(printUpperCase).andThen(print));
 
-        Printer printer = message -> System.out.println("message: " + message);
-
-
-        greet(new Printer() {
-            @Override
-            public void print(String message) {
-                System.out.println("message: " + message);
-            }
-        });
+        Supplier<Double> getRandom = () -> Math.random();
+        System.out.println(getRandom.get());
     }
 
     public static void greet(Printer printer) {
