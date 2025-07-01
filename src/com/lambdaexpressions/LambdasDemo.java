@@ -3,6 +3,7 @@ package com.lambdaexpressions;
 import java.util.List;
 import java.util.function.Consumer;
 import java.util.function.Function;
+import java.util.function.Predicate;
 import java.util.function.Supplier;
 
 public class LambdasDemo {
@@ -34,6 +35,10 @@ public class LambdasDemo {
 
         System.out.println(result);
         System.out.println(result2);
+
+        Predicate<String> isLongerThan5 = str -> str.length() > 5;
+        var resul3 = isLongerThan5.test("sky");
+        System.out.println(resul3);
     }
 
     public static void greet(Printer printer) {
