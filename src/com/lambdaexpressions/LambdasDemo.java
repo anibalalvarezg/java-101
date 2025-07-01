@@ -39,6 +39,13 @@ public class LambdasDemo {
         Predicate<String> isLongerThan5 = str -> str.length() > 5;
         var resul3 = isLongerThan5.test("sky");
         System.out.println(resul3);
+
+        Predicate<String> hasLeftBrace = str -> str.contains("{");
+        Predicate<String> hasRightBrace = str -> str.contains("}");
+        Predicate<String> hasLeftAndRightBraces = hasRightBrace.and(hasLeftBrace);
+        System.out.println(hasLeftAndRightBraces.test("{test}"));
+
+        greet(new ConsolePrinter());
     }
 
     public static void greet(Printer printer) {
