@@ -52,6 +52,11 @@ public class LambdasDemo {
 
         var result4 = add.andThen(square).apply(1,3);
         System.out.println(result4);
+
+        UnaryOperator<Integer> increment = n -> n + 1;
+        UnaryOperator<Integer> negate = n -> -n;
+
+        System.out.println(increment.compose(negate).apply(1));
     }
 
     public static void greet(Printer printer) {
