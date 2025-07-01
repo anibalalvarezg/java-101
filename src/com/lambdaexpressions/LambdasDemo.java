@@ -1,10 +1,7 @@
 package com.lambdaexpressions;
 
 import java.util.List;
-import java.util.function.Consumer;
-import java.util.function.Function;
-import java.util.function.Predicate;
-import java.util.function.Supplier;
+import java.util.function.*;
 
 public class LambdasDemo {
     public LambdasDemo(String message) {
@@ -46,6 +43,15 @@ public class LambdasDemo {
         System.out.println(hasLeftAndRightBraces.test("{test}"));
 
         greet(new ConsolePrinter());
+
+
+        // a, b -> a + b -> square
+        BinaryOperator<Integer> add = (a,b) -> a + b;
+        Function<Integer, Integer> square = n -> n * n;
+
+
+        var result4 = add.andThen(square).apply(1,3);
+        System.out.println(result4);
     }
 
     public static void greet(Printer printer) {
