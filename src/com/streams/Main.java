@@ -21,5 +21,9 @@ public class Main {
 
         System.out.println(count);
         System.out.println(count2);
+
+        movies.stream()
+                .mapToInt(movie -> movie.getLikes())
+                .forEach(n -> System.out.println(n));
     }
 }

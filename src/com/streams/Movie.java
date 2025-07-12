@@ -16,4 +16,12 @@ public class Movie {
     public void setLikes(int likes) {
         this.likes = likes;
     }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
 }
