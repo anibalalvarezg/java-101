@@ -1,6 +1,7 @@
 package com.streams;
 
 import java.util.List;
+import java.util.function.Predicate;
 
 public class Main {
     public static void main(String[] args) {
@@ -25,5 +26,10 @@ public class Main {
         movies.stream()
                 .mapToInt(movie -> movie.getLikes())
                 .forEach(n -> System.out.println(n));
+
+        Predicate<Movie> isPopular = m -> m.getLikes() > 10;
+        movies.stream()
+                .filter(isPopular)
+                .forEach(n -> System.out.println(n.getTitle()));
     }
 }
