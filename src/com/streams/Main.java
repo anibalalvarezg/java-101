@@ -31,5 +31,9 @@ public class Main {
         movies.stream()
                 .filter(isPopular)
                 .forEach(n -> System.out.println(n.getTitle()));
+
+        movies.stream()
+                .takeWhile(isPopular)
+                .forEach(n -> System.out.println(n.getTitle()));
     }
 }
