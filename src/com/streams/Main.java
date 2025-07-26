@@ -1,5 +1,6 @@
 package com.streams;
 
+import java.util.Comparator;
 import java.util.List;
 import java.util.function.Predicate;
 
@@ -35,5 +36,10 @@ public class Main {
         movies.stream()
                 .takeWhile(isPopular)
                 .forEach(n -> System.out.println(n.getTitle()));
+
+        movies.stream()
+                .sorted(Comparator.comparing(Movie::getTitle).reversed())
+                .forEach(n -> System.out.println(n.getTitle()));
+
     }
 }

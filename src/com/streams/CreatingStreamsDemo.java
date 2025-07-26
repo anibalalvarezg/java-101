@@ -24,5 +24,7 @@ public class CreatingStreamsDemo {
         streamList
                 .flatMap(Collection::stream)
                 .forEach(System.out::println);
+
+
     }
 }
