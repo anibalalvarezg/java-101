@@ -9,7 +9,7 @@ public class Main {
         List<Movie> movies = List.of(
                 new Movie("The Godfather", 10),
                 new Movie("The Godfather: Part II", 11),
-                new Movie("The Godfather: Part III", 112)
+                new Movie("The Godfather: Part III", 11)
         );
 
         int count = 0;
@@ -40,6 +40,11 @@ public class Main {
         movies.stream()
                 .sorted(Comparator.comparing(Movie::getTitle).reversed())
                 .forEach(n -> System.out.println(n.getTitle()));
+
+        movies.stream()
+                .map(Movie::getLikes)
+                .distinct()
+                .forEach(System.out::println);
 
     }
 }
