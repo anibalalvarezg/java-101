@@ -52,5 +52,32 @@ public class Main {
                 .map(Movie::getTitle)
                 .peek(t -> System.out.println("peek: " + t))
                 .forEach(System.out::println);
+
+        System.out.println(
+                movies.stream()
+                    .anyMatch(m -> m.getLikes() > 10)
+        );
+
+        System.out.println(
+                movies.stream()
+                        .allMatch(m -> m.getLikes() > 10)
+        );
+
+        System.out.println(
+                movies.stream()
+                        .noneMatch(m -> m.getLikes() > 10)
+        );
+
+        System.out.println(
+                movies.stream()
+                        .findFirst()
+                        .get().getTitle()
+        );
+
+        System.out.println(
+                movies.stream()
+                        .max(Comparator.comparing(Movie::getLikes))
+                        .get().getTitle()
+        );
     }
 }
