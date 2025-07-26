@@ -2,6 +2,7 @@ package com.streams;
 
 import java.util.Comparator;
 import java.util.List;
+import java.util.Optional;
 import java.util.function.Predicate;
 
 public class Main {
@@ -79,5 +80,11 @@ public class Main {
                         .max(Comparator.comparing(Movie::getLikes))
                         .get().getTitle()
         );
+
+        Optional<Integer> sum = movies.stream()
+            .map(Movie::getLikes)
+           .reduce(Integer::sum);
+
+        System.out.println(sum.orElse(0));
     }
 }
