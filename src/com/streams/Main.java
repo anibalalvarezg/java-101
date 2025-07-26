@@ -46,5 +46,11 @@ public class Main {
                 .distinct()
                 .forEach(System.out::println);
 
+        movies.stream()
+                .filter(m-> m.getLikes() > 10)
+                .peek(m -> System.out.println("filtered: " + m.getTitle()))
+                .map(Movie::getTitle)
+                .peek(t -> System.out.println("peek: " + t))
+                .forEach(System.out::println);
     }
 }
