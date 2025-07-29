@@ -4,6 +4,7 @@ import java.util.Comparator;
 import java.util.List;
 import java.util.Optional;
 import java.util.function.Predicate;
+import java.util.stream.Collectors;
 
 public class Main {
     public static void main(String[] args) {
@@ -86,5 +87,18 @@ public class Main {
            .reduce(Integer::sum);
 
         System.out.println(sum.orElse(0));
+
+        // key (title)
+        // value (likes)
+        System.out.println(movies.stream()
+                .filter(movie -> movie.getLikes() > 10)
+                .collect(Collectors.summarizingInt(Movie::getLikes))
+        );
+
+        System.out.println(movies.stream()
+                .map(Movie::getTitle)
+                .collect(Collectors.joining(", "))
+        );
+
     }
 }
