@@ -9,9 +9,9 @@ import java.util.stream.Collectors;
 public class Main {
     public static void main(String[] args) {
         List<Movie> movies = List.of(
-                new Movie("The Godfather", 10),
-                new Movie("The Godfather: Part II", 11),
-                new Movie("The Godfather: Part III", 11)
+                new Movie("The Godfather", 10, Genre.ACTION),
+                new Movie("The Godfather: Part II", 50, Genre.ACTION),
+                new Movie("The Godfather: Part III", 60, Genre.THRILLER)
         );
 
         int count = 0;
@@ -99,6 +99,11 @@ public class Main {
                 .map(Movie::getTitle)
                 .collect(Collectors.joining(", "))
         );
+
+        System.out.println(
+                movies.stream()
+                        .collect(Collectors.groupingBy(Movie::getGenre, Collectors.mapping(
+                                Movie::getTitle, Collectors.joining(", ")))));
 
     }
 }
