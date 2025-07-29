@@ -5,6 +5,7 @@ import java.util.List;
 import java.util.Optional;
 import java.util.function.Predicate;
 import java.util.stream.Collectors;
+import java.util.stream.IntStream;
 
 public class Main {
     public static void main(String[] args) {
@@ -110,6 +111,9 @@ public class Main {
                     .collect(Collectors.partitioningBy(
                             movie -> movie.getLikes() > 10,
                             Collectors.mapping(Movie::getTitle, Collectors.joining(", ")))));
+
+        IntStream.range(1, 5)
+                .forEach(System.out::println);
 
     }
 }
