@@ -105,5 +105,11 @@ public class Main {
                         .collect(Collectors.groupingBy(Movie::getGenre, Collectors.mapping(
                                 Movie::getTitle, Collectors.joining(", ")))));
 
+        System.out.println(
+            movies.stream()
+                    .collect(Collectors.partitioningBy(
+                            movie -> movie.getLikes() > 10,
+                            Collectors.mapping(Movie::getTitle, Collectors.joining(", ")))));
+
     }
 }
