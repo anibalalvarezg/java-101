@@ -1,7 +1,11 @@
 package com.concurrency;
 
+import java.util.concurrent.locks.Lock;
+import java.util.concurrent.locks.ReentrantLock;
+
 public class DownloadStatus {
-    private int totalBytes;
+    private int totalBytes = 0;
+    private Lock lock = new ReentrantLock();
 
     public int getTotalBytes() {
         return totalBytes;
@@ -12,6 +16,11 @@ public class DownloadStatus {
     }
 
     public void incrementTotalBytes() {
-        this.totalBytes += 1;
+        lock.lock();
+        try {
+            this.totalBytes++;
+        } finally {
+            lock.unlock();
+        }
     }
 }

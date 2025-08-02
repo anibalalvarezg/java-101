@@ -34,17 +34,15 @@ public class Main {
 //
 //        thread.interrupt();
 
-        var status = new DownloadStatus();
         List<Thread> threads = new ArrayList<Thread>();
+        List<DownloadFileTask> task = new ArrayList<>();
+
         for (var i = 0; i < 10; i++) {
-            var thread = new Thread(new DownloadFileTask(status));
+            var taskTest = new DownloadFileTask();
+            task.add(taskTest);
+            var thread = new Thread(taskTest);
             thread.start();
             threads.add(thread);
-            try {
-                thread.join();
-            } catch (InterruptedException e) {
-                throw new RuntimeException(e);
-            }
         }
 
         for (var thread : threads) {
@@ -55,6 +53,9 @@ public class Main {
             }
         }
 
-        System.out.println(status.getTotalBytes());
+        var totalBytes = task.stream()
+                .map(t -> t.getStatus().getTotalBytes())
+                .reduce(0, Integer::sum);
+        System.out.println(totalBytes);
     }
 }
